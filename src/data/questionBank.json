@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "id": "q-sensor-1",
+      "node": "sensor",
+      "prompt": "土壤湿度传感器读数整体偏高 5%，最可能的问题与对策是？",
+      "options": ["随机噪声过大，应加滤波", "零点偏移，应重新标定", "采样率不足，应提高采样率", "电池电压不足，应换电池"],
+      "answer": 1,
+      "explain": "整体恒定偏差属于系统误差（零点偏移），滤波只能抑制随机噪声，标定才能消除系统误差。",
+      "linked": ["n-sensor-cal"]
+    },
+    {
+      "id": "q-sensor-2",
+      "node": "sensor",
+      "prompt": "12 位 ADC、量程 0–3.3 V，其分辨率约为？",
+      "options": ["0.8 mV", "3.3 mV", "0.33 V", "12 mV"],
+      "answer": 0,
+      "explain": "分辨率 = 3.3 V / 4096 ≈ 0.8 mV。位数决定份数，量程决定每份大小。",
+      "linked": ["n-adc"]
+    },
+    {
+      "id": "q-wireless-1",
+      "node": "wireless",
+      "prompt": "RSSI 测距在室内误差大的主要原因是？",
+      "options": ["发射功率不稳定", "多径反射与遮挡使衰减模型失配", "ADC 位数不足", "天线颜色影响接收"],
+      "answer": 1,
+      "explain": "RSSI 依赖经验衰减模型，室内多径与人体遮挡使实际衰减偏离模型，故误差大。",
+      "linked": ["n-rssi"]
+    },
+    {
+      "id": "q-wireless-2",
+      "node": "wireless",
+      "prompt": "接收灵敏度越高（数值越负），意味着？",
+      "options": ["能解调更弱的信号，通信距离更远", "发射功率必须更大", "带宽必须更宽", "数据速率必然更高"],
+      "answer": 0,
+      "explain": "灵敏度是「能听见多弱的信号」的下限，越负表示弱信号能力越强，距离越远。",
+      "linked": ["n-rssi", "n-lora"]
+    },
+    {
+      "id": "q-acq-1",
+      "node": "dataacq",
+      "prompt": "信号最高频率 50 Hz，按采样定理采样率至少应为？",
+      "options": ["25 Hz", "50 Hz", "100 Hz", "10 Hz"],
+      "answer": 2,
+      "explain": "奈奎斯特准则：采样率 ≥ 2 × 最高频率 = 100 Hz，否则发生混叠。",
+      "linked": ["n-adc"]
+    },
+    {
+      "id": "q-acq-2",
+      "node": "dataacq",
+      "prompt": "提高 ADC 位数直接改善的是？",
+      "options": ["采样速度", "量化分辨率", "无线传输距离", "电池寿命"],
+      "answer": 1,
+      "explain": "位数决定量化份数 2^N，直接改善分辨率；与速率、距离、功耗无直接关系。",
+      "linked": ["n-adc"]
+    },
+    {
+      "id": "q-lora-1",
+      "node": "lora",
+      "prompt": "LoRa 中把扩频因子 SF 从 7 调到 12，结果是？",
+      "options": ["速率提高、距离变短", "灵敏度提高、距离变远、速率下降", "功耗必然下降", "带宽自动变宽"],
+      "answer": 1,
+      "explain": "SF 越大扩频增益越高，灵敏度与距离提升，但符号时间变长、速率下降。",
+      "linked": ["n-lora"]
+    },
+    {
+      "id": "q-lora-2",
+      "node": "lora",
+      "prompt": "关于 LoRa 与 LoRaWAN，正确的是？",
+      "options": ["两者是同一层协议", "LoRa 是物理层调制，LoRaWAN 是组网/MAC 协议", "LoRaWAN 负责扩频调制", "LoRa 定义星型入网流程"],
+      "answer": 1,
+      "explain": "分层记忆：LoRa = 物理层（怎么传），LoRaWAN = MAC/组网（怎么组网）。",
+      "linked": ["n-lora", "n-lorawan"]
+    },
+    {
+      "id": "q-lora-3",
+      "node": "lora",
+      "prompt": "Class A 终端最省电的原因是？",
+      "options": ["持续监听下行", "只在自身上行后打开两个短接收窗", "使用最高发射功率", "不需要网关"],
+      "answer": 1,
+      "explain": "Class A 接收窗短且由上行触发，其余时间可休眠，故最省电；代价是下行实时性差。",
+      "linked": ["n-lorawan"]
+    },
+    {
+      "id": "q-power-1",
+      "node": "lowpower",
+      "prompt": "节点发送电流 30 mA 持续 0.2 s，其余 299.8 s 休眠 5 μA，周期 300 s 的平均电流约为？",
+      "options": ["30 mA", "约 25 μA", "5 μA", "约 15 mA"],
+      "answer": 1,
+      "explain": "平均 = (30 mA×0.2 + 0.005 mA×299.8)/300 ≈ (6+1.5)/300 mA ≈ 25 μA。占空比是杠杆。",
+      "linked": ["n-sleep"]
+    },
+    {
+      "id": "q-power-2",
+      "node": "lowpower",
+      "prompt": "把唤醒周期从 5 min 拉长到 15 min，直接后果是？",
+      "options": ["平均电流下降、数据实时性变差", "平均电流上升", "发射功率提高", "ADC 分辨率提高"],
+      "answer": 0,
+      "explain": "唤醒次数减少 → 平均电流下降；但采样间隔变长 → 实时性变差。这是续航与实时性的权衡。",
+      "linked": ["n-sleep"]
+    },
+    {
+      "id": "q-topo-1",
+      "node": "topology",
+      "prompt": "农田监测选星型拓扑的主要理由是？",
+      "options": ["终端可以互相中继", "终端简单省电、管理集中在网关", "不需要网关", "抗单点故障能力最强"],
+      "answer": 1,
+      "explain": "星型把复杂度集中在网关侧，终端只做「采样-发送-休眠」，最省电也最易维护。",
+      "linked": ["n-gateway", "n-lorawan"]
+    },
+    {
+      "id": "q-topo-2",
+      "node": "topology",
+      "prompt": "星型 LoRaWAN 网络中最典型的单点故障是？",
+      "options": ["某个终端电池耗尽", "网关断电或回传中断", "某个传感器标定过期", "SF 设置过高"],
+      "answer": 1,
+      "explain": "所有上行都经网关汇聚回传，网关失效则全网瘫痪；终端失效只影响单点。",
+      "linked": ["n-gateway"]
+    },
+    {
+      "id": "q-app-1",
+      "node": "app",
+      "prompt": "验证「新休眠策略省电 30%」时，对照组应当是？",
+      "options": ["另一块农田的旧节点", "同硬件同环境运行旧策略的节点", "不同型号电池的新节点", "晴天测新策略、雨天测旧策略"],
+      "answer": 1,
+      "explain": "对照要求除自变量（策略）外其余条件一致：同硬件、同环境、同时段。",
+      "linked": ["n-ctrl-group", "n-var-ctrl"]
+    },
+    {
+      "id": "q-app-2",
+      "node": "app",
+      "prompt": "实验报告只给平均误差下降，未做显著性检验，主要风险是？",
+      "options": ["无法排除差异来自随机波动", "数据量一定不足", "仪器一定不准", "结论一定错误"],
+      "answer": 0,
+      "explain": "显著性检验回答「差异是否可能纯属偶然」；缺失它，下降可能只是测量波动。",
+      "linked": ["n-sig-test"]
+    },
+    {
+      "id": "q-app-3",
+      "node": "app",
+      "prompt": "结论写「本系统适用于所有农业场景」，问题在于？",
+      "options": ["没有致谢", "超出实验验证的适用边界", "字数太多", "没有引用文献"],
+      "answer": 1,
+      "explain": "实验仅覆盖单一作物与一个生长季，结论断言超出证据边界，属于过度推广。",
+      "linked": ["n-sig-test", "n-mae"]
+    }
+  ]
+}

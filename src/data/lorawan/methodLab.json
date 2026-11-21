@@ -1,0 +1,155 @@
+{
+  "paperId": "paper_lorawan_2023_8440",
+  "activities": [
+    {
+      "id": "lab_match_01",
+      "title": "技术原理匹配",
+      "activityType": "matching",
+      "prompt": "将 LoRaWAN 系统中的组成部分与其主要作用匹配。此练习按论文第 2 页的三组件架构进行简化教学。",
+      "items": [
+        {
+          "id": "end_device",
+          "label": "端设备（End Device）"
+        },
+        {
+          "id": "gateway",
+          "label": "网关（Gateway）"
+        },
+        {
+          "id": "backend",
+          "label": "后端服务器（Back-end Server）"
+        }
+      ],
+      "options": [
+        {
+          "id": "role_sense",
+          "label": "连接传感器并产生/发送测量数据"
+        },
+        {
+          "id": "role_forward",
+          "label": "接收无线消息并向后端转发"
+        },
+        {
+          "id": "role_process",
+          "label": "承担网络侧及应用侧的后台处理"
+        }
+      ],
+      "correctAnswer": {
+        "end_device": "role_sense",
+        "gateway": "role_forward",
+        "backend": "role_process"
+      },
+      "explanation": "端设备是数据来源；网关是无线接入与后端之间的转发节点；后端服务器包含网络服务器、加入服务器和应用服务器等组件。真实系统的具体职责划分应以所用规范和平台实现为准。",
+      "relatedKnowledge": [
+        "kn_architecture",
+        "kn_sensors_hardware"
+      ],
+      "source": {
+        "pages": [
+          2
+        ],
+        "sections": [
+          "1. Introduction"
+        ]
+      }
+    },
+    {
+      "id": "lab_order_01",
+      "title": "研究流程排序",
+      "activityType": "ordering",
+      "prompt": "按照论文第 3—5 页描述的系统性文献综述过程，将步骤排成合理顺序。",
+      "items": [
+        {
+          "id": "step_plan",
+          "label": "规划：确定研究目标、关键词和数据库"
+        },
+        {
+          "id": "step_search",
+          "label": "自动检索：在数据库中执行检索式并逐步增加筛选条件"
+        },
+        {
+          "id": "step_manual",
+          "label": "人工审查：阅读摘要并选择与研究目标相关的文献"
+        },
+        {
+          "id": "step_summarize",
+          "label": "整理：汇总纳入文献的应用领域、器件和研究进展"
+        }
+      ],
+      "options": [
+        "step_plan",
+        "step_search",
+        "step_manual",
+        "step_summarize"
+      ],
+      "correctAnswer": [
+        "step_plan",
+        "step_search",
+        "step_manual",
+        "step_summarize"
+      ],
+      "explanation": "作者明确描述规划、自动检索结果、人工审查结果三个阶段；在教学练习中将最后的结果归纳单独列为整理步骤，便于学生理解从筛选到形成综述结果的过程。",
+      "relatedKnowledge": [
+        "kn_review_method"
+      ],
+      "source": {
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          8,
+          14,
+          17
+        ],
+        "sections": [
+          "2. Materials and Methods",
+          "3. Results",
+          "4. Discussion",
+          "5. Conclusions"
+        ]
+      }
+    },
+    {
+      "id": "lab_judge_01",
+      "title": "实验设计判断",
+      "activityType": "scenario_judgment",
+      "prompt": "某团队准备在校园部署 LoRaWAN 空气质量监测节点。团队只在一个位置测试一次 RSSI，就宣布整个校园的网络覆盖和数据交付都可靠。这个判断是否充分？",
+      "scenario": "测试指标只有单点 RSSI；没有在不同位置、距离和障碍环境下采样，也没有统计数据包是否成功送达。",
+      "options": [
+        {
+          "id": "A",
+          "label": "充分。RSSI 一个指标足以代表全部网络性能。"
+        },
+        {
+          "id": "B",
+          "label": "不充分。应结合不同位置的测量，并评估 SNR、PDR 等指标及环境因素。"
+        },
+        {
+          "id": "C",
+          "label": "充分。只要使用 LoRaWAN 就不需要现场验证。"
+        },
+        {
+          "id": "D",
+          "label": "不充分的唯一原因是没有测量 CPU 温度。"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "论文第 11—12 页转述的校园环境研究同时考察 RSSI、SNR 和 PDR，并观察到这些指标的变化并不完全相同。单次、单点 RSSI 无法说明整个区域的覆盖和数据包交付情况。这里的实验设计建议是基于论文性能评估内容作出的教学延伸。",
+      "relatedKnowledge": [
+        "kn_performance_metrics",
+        "kn_lorawan_role"
+      ],
+      "source": {
+        "pages": [
+          11,
+          12
+        ],
+        "sections": [
+          "3.3. Other Works Analyzing Different Aspects of LoRaWAN"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    }
+  ]
+}

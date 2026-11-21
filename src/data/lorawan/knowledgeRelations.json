@@ -1,0 +1,110 @@
+{
+  "paperId": "paper_lorawan_2023_8440",
+  "relations": [
+    {
+      "id": "rel_001",
+      "source": "kn_iot_basics",
+      "target": "kn_lpwan",
+      "relationship": "prerequisite",
+      "explanation": "理解物联网设备需要通信，才能理解 LPWAN 为何存在。"
+    },
+    {
+      "id": "rel_002",
+      "source": "kn_lpwan",
+      "target": "kn_lorawan_role",
+      "relationship": "prerequisite",
+      "explanation": "先理解 LPWAN 的低功耗广覆盖定位，再学习 LoRaWAN 在其中的特点。"
+    },
+    {
+      "id": "rel_003",
+      "source": "kn_iot_basics",
+      "target": "kn_architecture",
+      "relationship": "prerequisite",
+      "explanation": "物联网数据链是理解端设备、网关和服务器分工的基础。"
+    },
+    {
+      "id": "rel_004",
+      "source": "kn_lorawan_role",
+      "target": "kn_architecture",
+      "relationship": "prerequisite",
+      "explanation": "先明确 LoRaWAN 的用途，再分析它的网络组成。"
+    },
+    {
+      "id": "rel_005",
+      "source": "kn_architecture",
+      "target": "kn_end_device_classes",
+      "relationship": "prerequisite",
+      "explanation": "终端类别是 LoRaWAN 端设备的通信行为分类，需要先知道端设备在架构中的位置。"
+    },
+    {
+      "id": "rel_006",
+      "source": "kn_iot_basics",
+      "target": "kn_sensors_hardware",
+      "relationship": "prerequisite",
+      "explanation": "理解感知与数据采集任务后，才能区分硬件组件的作用。"
+    },
+    {
+      "id": "rel_007",
+      "source": "kn_architecture",
+      "target": "kn_sensors_hardware",
+      "relationship": "component",
+      "explanation": "传感器和节点硬件构成端设备侧系统，网关则是网络架构中的另一组成部分。"
+    },
+    {
+      "id": "rel_008",
+      "source": "kn_architecture",
+      "target": "kn_lorawan_security",
+      "relationship": "prerequisite",
+      "explanation": "安全机制保护设备入网和网络通信，需要先理解通信架构。"
+    },
+    {
+      "id": "rel_009",
+      "source": "kn_lorawan_role",
+      "target": "kn_applications",
+      "relationship": "prerequisite",
+      "explanation": "掌握 LoRaWAN 的适用特征后，才能判断哪些应用需求与其匹配。"
+    },
+    {
+      "id": "rel_010",
+      "source": "kn_sensors_hardware",
+      "target": "kn_applications",
+      "relationship": "application",
+      "explanation": "应用领域的测量目标决定传感器和节点硬件的选择。"
+    },
+    {
+      "id": "rel_011",
+      "source": "kn_lpwan",
+      "target": "kn_performance_metrics",
+      "relationship": "prerequisite",
+      "explanation": "理解 LPWAN 的覆盖、功耗和速率权衡后，再学习链路性能评估指标。"
+    },
+    {
+      "id": "rel_012",
+      "source": "kn_architecture",
+      "target": "kn_performance_metrics",
+      "relationship": "prerequisite",
+      "explanation": "性能指标用于评估网络链路和数据交付，需先理解数据经过的网络路径。"
+    },
+    {
+      "id": "rel_013",
+      "source": "kn_iot_basics",
+      "target": "kn_review_method",
+      "relationship": "related",
+      "explanation": "本文以物联网领域为对象开展系统性文献检索；该关系表示研究主题关联，不表示 IoT 概念是文献综述方法的严格理论前置。"
+    },
+    {
+      "id": "rel_014",
+      "source": "kn_architecture",
+      "target": "kn_sensors_hardware",
+      "relationship": "prerequisite",
+      "explanation": "先理解端设备在网络中的位置，再区分传感器、开发板和通信模块如何组成端设备侧系统。"
+    },
+    {
+      "id": "rel_015",
+      "source": "kn_sensors_hardware",
+      "target": "kn_applications",
+      "relationship": "prerequisite",
+      "explanation": "理解传感器和节点硬件的功能后，更容易分析不同应用场景需要采集哪些数据。"
+    }
+  ]
+}

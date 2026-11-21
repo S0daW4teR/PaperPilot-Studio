@@ -1,0 +1,270 @@
+{
+  "id": "paper_lorawan_2023_8440",
+  "title": "A Systematic Literature Review of LoRaWAN: Sensors and Applications",
+  "authors": [
+    "Vicky Bonilla",
+    "Brandon Campoverde",
+    "Sang Guun Yoo"
+  ],
+  "year": 2023,
+  "publication": {
+    "journal": "Sensors",
+    "volume": 23,
+    "articleNumber": "8440",
+    "publishedDate": "2023-10-13"
+  },
+  "doi": "10.3390/s23208440",
+  "url": "https://doi.org/10.3390/s23208440",
+  "license": {
+    "name": "Creative Commons Attribution 4.0 International",
+    "abbreviation": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "status": "论文首页明确标注开放获取及 CC BY 许可"
+  },
+  "researchField": [
+    "物联网（IoT）",
+    "低功耗广域网（LPWAN）",
+    "LoRaWAN",
+    "无线传感器网络",
+    "传感器应用"
+  ],
+  "paperType": "系统性文献综述（Systematic Literature Review），非本文作者自行开展的单一设备实验研究",
+  "language": "English",
+  "audience": "物联网、电子信息或电气工程专业大一学生",
+  "sourcePolicy": {
+    "paperFacts": "来自所上传论文正文、表格及图示；文献综述中转述的个案实验数据应视为被引用研究的结果，而非本综述作者亲自测得。",
+    "backgroundKnowledge": "仅用于解释初学者需要的基础概念，并在相应字段中标记为教学补充。",
+    "aiExtensions": "为帮助学习而进行的类比、归纳或教学设计，不代表论文作者原话或新增研究结论。"
+  },
+  "structure": [
+    {
+      "id": "paper_section_background",
+      "name": "研究背景",
+      "professionalSummary": "物联网设备需要根据覆盖范围、数据速率和功耗选择通信技术。论文将 LoRaWAN 放在 LPWAN 技术背景下讨论，并介绍 Sigfox、NB-IoT 等方案作为比较对象。LoRaWAN 面向低数据速率、较长传输间隔的传感器应用，强调低功耗和较广覆盖。",
+      "studentExplanation": "想象一个农田里装了很多温湿度传感器：它们不需要每秒传视频，只要隔一段时间报告一次数据，但设备可能离服务器很远，而且最好几年不用换电池。LoRaWAN 就是为这类需求设计的通信方案之一。",
+      "source": {
+        "pages": [
+          1,
+          2
+        ],
+        "sections": [
+          "Abstract",
+          "1. Introduction"
+        ]
+      },
+      "contentOrigin": "paper_fact"
+    },
+    {
+      "id": "paper_section_problem",
+      "name": "研究问题",
+      "professionalSummary": "论文旨在梳理近年 LoRaWAN 的主要应用领域、常用开发板和模块，并总结性能改进与安全研究进展。作者明确提出的问题包括：LoRaWAN 的主要应用是什么、哪些开发板和模块最常用、该技术领域正在出现哪些进展。",
+      "studentExplanation": "作者不是只想回答“LoRaWAN 是什么”，而是想通过阅读许多论文回答三个问题：大家把它用在哪里、做项目常用什么硬件、研究人员正在努力改进什么。",
+      "source": {
+        "pages": [
+          2,
+          3
+        ],
+        "sections": [
+          "1. Introduction"
+        ]
+      },
+      "contentOrigin": "paper_fact"
+    },
+    {
+      "id": "paper_section_core_technology",
+      "name": "核心技术",
+      "professionalSummary": "论文讨论 LoRaWAN 作为 LPWAN 网络技术的特点、端设备—网关—后端服务器的基本组成、A/B/C 三类终端接收窗口行为，以及 ABP/OTAA 激活方式和安全机制；应用研究涉及传感器、开发板、模块、网关和天线。",
+      "studentExplanation": "可以把系统想成一条数据接力链：传感器节点采集数据，网关负责把无线消息转交给后端网络，服务器再处理并提供给应用。设备如何接收下行消息、如何入网，也会影响功耗和安全。",
+      "source": {
+        "pages": [
+          2,
+          9,
+          10,
+          13,
+          14
+        ],
+        "sections": [
+          "1. Introduction",
+          "3.2. Devices Used in LoRaWAN Applications",
+          "3.3.2. Security",
+          "3.3.3. Performance Improvement"
+        ]
+      },
+      "contentOrigin": "paper_fact"
+    },
+    {
+      "id": "paper_section_method",
+      "name": "研究方法",
+      "professionalSummary": "作者采用文献系统综述流程，按规划、自动检索结果、人工审查结果三个阶段开展研究。检索数据库包括 IEEE Xplore、Springer Link、SCOPUS 和 ACM Digital Library，并使用 Mendeley 补充相关文献。",
+      "studentExplanation": "这篇论文的“实验材料”主要是已有论文。作者先确定去哪里找、用什么关键词找，再逐步缩小结果，最后人工阅读摘要并挑选与研究目标相关的文章。",
+      "source": {
+        "pages": [
+          3,
+          4,
+          5
+        ],
+        "sections": [
+          "2. Materials and Methods",
+          "2.1. Planning",
+          "2.2. Automatic Review of Results",
+          "2.3. Manual Review of Results"
+        ]
+      },
+      "contentOrigin": "paper_fact"
+    },
+    {
+      "id": "paper_section_design",
+      "name": "实验设计或文献分析方法",
+      "professionalSummary": "研究不是单一受控实验，而是分轮次数据库检索和人工筛选。关键词包括 LoRaWAN、sensors、applications；后续检索限制标题/摘要/关键词、英语和 2020—2023 年等条件，并对 SCOPUS 进一步加入 monitoring。最终纳入表格列出 IEEE Xplore 23 篇、Springer Link 17 篇、SCOPUS 18 篇、ACM 3 篇、Mendeley 2 篇；不同类别可能交叉。",
+      "studentExplanation": "筛选过程像从图书馆里找资料：先广泛搜索，再增加条件减少无关结果，最后由人判断哪些文章真正值得纳入。注意同一篇文章可能涉及多个应用类别，因此分类数不能简单理解为互不重复的论文总数。",
+      "source": {
+        "pages": [
+          3,
+          4,
+          5,
+          15
+        ],
+        "sections": [
+          "2.1—2.3",
+          "Figure 3",
+          "Table 5"
+        ]
+      },
+      "contentOrigin": "paper_fact"
+    },
+    {
+      "id": "paper_section_findings",
+      "name": "主要发现",
+      "professionalSummary": "综述发现，环境监测是所分析应用中最常见的方向；农业、移动性和健康也是重要应用领域。常见硬件包括 Arduino、Raspberry Pi，以及 Semtech 和 STMicroelectronics 相关器件。性能改进研究主要涉及安全、能耗和数据包交付，且论文指出能耗优化受到较多关注。",
+      "studentExplanation": "从作者整理的研究来看，LoRaWAN 很常被拿来做环境数据采集，例如温度、湿度、空气和水质监测；研究人员也在想办法让设备更省电、消息更可靠、系统更安全。",
+      "source": {
+        "pages": [
+          6,
+          7,
+          8,
+          9,
+          14,
+          15,
+          16,
+          17
+        ],
+        "sections": [
+          "3.1",
+          "3.2",
+          "3.3",
+          "4. Discussion",
+          "5. Conclusions",
+          "Figures 1—5",
+          "Tables 6—8"
+        ]
+      },
+      "contentOrigin": "paper_fact"
+    },
+    {
+      "id": "paper_section_conclusion",
+      "name": "研究结论",
+      "professionalSummary": "作者认为 LoRaWAN 适合低数据速率、远距离、低能耗的监测类应用；扩频调制、免许可频段使用等特征使其具有覆盖和成本方面的吸引力。论文同时指出仍需继续测量实际性能并提出改进方案。",
+      "studentExplanation": "它不是所有无线通信场景的万能答案。如果设备只需偶尔发送少量传感器数据，LoRaWAN 值得考虑；如果要传输大量数据或要求很低延迟，就应比较其他通信技术。",
+      "source": {
+        "pages": [
+          16,
+          17
+        ],
+        "sections": [
+          "5. Conclusions"
+        ]
+      },
+      "contentOrigin": "paper_fact"
+    },
+    {
+      "id": "paper_section_limitations",
+      "name": "研究局限性",
+      "professionalSummary": "论文没有单独设置“Limitations”章节。作者在结论中承认，关于 LoRaWAN 主要研究领域的问题未能完全回答，因为被分析论文中只有 48% 对应 LoRaWAN 应用。检索策略还限定了数据库、语言、关键词和时间范围，可能影响文献覆盖面；不同应用类别存在交叉。",
+      "studentExplanation": "这份综述像一张根据特定搜索规则绘制的地图，不等于全世界所有 LoRaWAN 研究的完整清单。作者也承认，纳入文献中只有一部分直接属于应用研究，所以对“最主要研究领域”的回答存在边界。",
+      "source": {
+        "pages": [
+          3,
+          4,
+          5,
+          15,
+          16,
+          17
+        ],
+        "sections": [
+          "2. Materials and Methods",
+          "4. Discussion",
+          "5. Conclusions",
+          "Figure 3"
+        ]
+      },
+      "contentOrigin": "paper_fact_and_cautious_inference",
+      "verificationNote": "论文未给出独立的局限性章节；数据库/语言/时间范围对覆盖面的影响属于基于检索设计的审慎方法学分析，不应伪装成作者明确列出的局限性。"
+    }
+  ],
+  "reviewMethod": {
+    "phases": [
+      "Planning",
+      "Automatic Review of Results",
+      "Manual Review of Results"
+    ],
+    "databases": [
+      "IEEE Xplore",
+      "Springer Link",
+      "SCOPUS",
+      "ACM Digital Library"
+    ],
+    "supplementarySource": "Mendeley",
+    "keywords": [
+      "LoRaWAN",
+      "sensors",
+      "applications"
+    ],
+    "timeWindow": "2020—2023（检索策略中的年份限制）",
+    "languageFilter": "English（部分数据库检索式明确限制）",
+    "finalCountsBySource": {
+      "IEEE Xplore": 23,
+      "Springer Link": 17,
+      "SCOPUS": 18,
+      "ACM": 3,
+      "Mendeley": 2
+    },
+    "countCaution": "表 5 的分来源数量合计为 63 条记录；不能在未核对去重过程的情况下把它直接称为 63 篇互不重复论文。"
+  },
+  "visualEvidence": [
+    {
+      "id": "paper_figure_1",
+      "name": "应用领域分布图",
+      "page": 14,
+      "description": "环境监测柱形最高，约占图示应用类别的半数；农业、移动性和健康所占比例较低。图示统计口径应结合正文分类理解。"
+    },
+    {
+      "id": "paper_figure_2",
+      "name": "Other works 子类别饼图",
+      "page": 15,
+      "description": "性能研究约 58.0%，比较研究约 21.5%，应用描述或开发约 20.5%。"
+    },
+    {
+      "id": "paper_figure_3",
+      "name": "LoRaWAN 应用类别气泡图",
+      "page": 15,
+      "description": "图中显示环境监测、性能、比较、农业、移动性、健康和一般应用等类别，并提示部分文献跨类别。"
+    },
+    {
+      "id": "paper_figure_4",
+      "name": "软件工具使用频次",
+      "page": 16,
+      "description": "NS-3、OMNeT++、Matlab、Arduino IDE、InfluxDB 等工具出现在所分析研究中。"
+    },
+    {
+      "id": "paper_figure_5",
+      "name": "开发板和模块品牌使用情况",
+      "page": 16,
+      "description": "Semtech Corporation、Arduino、Raspberry Pi 等在被分析项目中出现较多。"
+    }
+  ],
+  "qualityNotes": [
+    "论文中的网络机制概述可作为技术知识来源；应用个案中的定量结果必须注明其对应参考文献编号。",
+    "论文结论中的“低成本、远距离、低功耗”是相对适用场景的概括，不应解释为任何环境下都优于其他通信方案。",
+    "论文正文关于设备类别、协议细节的表述应与具体 LoRaWAN 版本标准交叉核验后再用于工程实现。"
+  ]
+}

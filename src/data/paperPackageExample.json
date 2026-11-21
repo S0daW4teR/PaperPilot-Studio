@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0",
+  "paper": {
+    "id": "paper_import_example",
+    "title": "本地导入功能测试（虚构教学示例）",
+    "authors": [],
+    "year": null,
+    "journal": null,
+    "doi": null,
+    "originalUrl": null,
+    "field": ["导入测试"],
+    "paperType": "教学演示案例",
+    "difficulty": "入门",
+    "abstract": "此文件仅用于验证 PaperPilot 的本地导入、预览、保存和导出流程，不对应真实发表论文，不包含真实作者、实验数据或研究结论。",
+    "license": null,
+    "keywords": ["测试样例", "结构化数据"],
+    "verificationNotes": ["纯教学测试文件，元信息不适用；不能当作真实论文引用。"]
+  },
+  "sections": [
+    {
+      "id": "example_section_01", "title": "结构化数据与引用", "order": 1,
+      "summary": "教学示例：JSON 语法与 ID 引用是两个不同的检查层面。",
+      "detailedContent": "教学补充：一个文件即使能够解析为 JSON，也可能包含指向不存在知识点的引用。先检查格式，再核对关联，最后预览并确认保存。本内容用于软件功能测试，不是论文事实。",
+      "sourcePages": [], "relatedKnowledge": ["example_kn_json", "example_kn_reference"]
+    }
+  ],
+  "knowledgePoints": [
+    {
+      "id": "example_kn_json", "name": "JSON 结构", "category": "数据格式", "difficulty": 1,
+      "prerequisites": [], "explanation": "教学补充：JSON 使用对象、数组和基本值表达结构化数据。",
+      "simpleExplanation": "教学补充：可以把它理解为按约定格式填写的数据表。",
+      "learningObjectives": ["区分对象和数组"], "example": "教学示例：论文元信息是对象，章节列表是数组。",
+      "source": {"pages": [], "sections": [], "kind": "teaching_extension", "verificationStatus": "not_applicable", "note": "虚构教学测试文件，不对应论文来源。"}
+    },
+    {
+      "id": "example_kn_reference", "name": "ID 引用检查", "category": "数据关联", "difficulty": 1,
+      "prerequisites": ["example_kn_json"], "explanation": "教学补充：被引用的知识点 ID 必须存在于同一数据包中。",
+      "simpleExplanation": "教学补充：引用像目录编号，必须能找到对应条目。",
+      "learningObjectives": ["识别无效引用"], "example": "教学示例：测试题关联某知识点时，该知识点必须先有定义。",
+      "source": {"pages": [], "sections": [], "kind": "teaching_extension", "verificationStatus": "not_applicable", "note": "虚构教学测试文件，不对应论文来源。"}
+    }
+  ],
+  "knowledgeRelations": [
+    {"source": "example_kn_json", "target": "example_kn_reference", "relationship": "prerequisite", "explanation": "教学设计：先了解结构，再检查关联。"}
+  ],
+  "glossary": [
+    {"id": "example_term_id", "term": "标识符", "abbreviation": "ID", "definition": "教学补充：用于识别数据条目的名称。", "simpleExplanation": "教学补充：条目的唯一编号。", "relatedKnowledge": ["example_kn_reference"]}
+  ],
+  "questions": [
+    {
+      "id": "example_q_01", "type": "single_choice", "question": "教学测试：哪个步骤能发现不存在的知识点引用？",
+      "options": [{"id": "example_q_01_A", "text": "关联验证"}, {"id": "example_q_01_B", "text": "改变文件名"}, {"id": "example_q_01_C", "text": "调整颜色"}, {"id": "example_q_01_D", "text": "放大字体"}],
+      "answer": "A", "explanation": "教学补充：关联验证检查 ID 是否指向实际条目。", "relatedKnowledge": ["example_kn_reference"], "difficulty": 1
+    },
+    {
+      "id": "example_q_02", "type": "true_false", "question": "教学测试：JSON 语法正确就一定没有无效引用。",
+      "options": [{"id": "example_q_02_true", "text": "正确"}, {"id": "example_q_02_false", "text": "错误"}],
+      "answer": "false", "explanation": "教学补充：语法和关联需要分别验证。", "relatedKnowledge": ["example_kn_json"], "difficulty": 1
+    }
+  ],
+  "methodLab": [
+    {
+      "id": "example_lab_match", "title": "教学练习：检查项匹配", "description": "虚构教学测试，不对应真实论文。", "type": "matching", "question": "将检查项匹配到作用。",
+      "items": [{"id": "example_match_syntax", "label": "语法检查"}, {"id": "example_match_refs", "label": "引用检查"}],
+      "options": [{"id": "example_match_parse", "label": "检查能否解析"}, {"id": "example_match_exists", "label": "检查关联是否存在"}],
+      "answer": {"example_match_syntax": "example_match_parse", "example_match_refs": "example_match_exists"},
+      "explanation": "教学补充：两类检查解决不同问题。", "relatedKnowledge": ["example_kn_json", "example_kn_reference"]
+    },
+    {
+      "id": "example_lab_order", "title": "教学练习：导入顺序", "description": "虚构教学测试，仅描述本应用操作。", "type": "ordering", "question": "先校验，再确认保存。",
+      "options": [{"id": "example_step_check", "label": "完成验证并查看预览"}, {"id": "example_step_save", "label": "确认保存"}],
+      "answer": ["example_step_check", "example_step_save"], "explanation": "教学补充：未经确认不能保存。", "relatedKnowledge": ["example_kn_reference"]
+    },
+    {
+      "id": "example_lab_design", "title": "教学练习：重复 ID", "description": "教学假设情境：文件使用了已有论文 ID。", "type": "scenario_judgment", "question": "发现重复 ID 后应如何处理？",
+      "options": [{"id": "example_design_keep", "label": "拒绝覆盖并提示用户"}, {"id": "example_design_replace", "label": "静默覆盖"}],
+      "answer": "example_design_keep", "explanation": "教学补充：拒绝重复写入以保护原数据。", "relatedKnowledge": ["example_kn_reference"]
+    }
+  ]
+}

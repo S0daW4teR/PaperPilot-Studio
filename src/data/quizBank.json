@@ -1,0 +1,201 @@
+{
+  "ruleText": "组卷与评分规则 Q1–Q4：种子随机不重复抽取 3 道选择 + 2 道判断；每题 20 分；累计答错 ≥ 2 次的标签判为薄弱、1 次为关注；复习建议只链接到预置论文章节、知识地图节点或技能预置复习路径。",
+  "skills": [
+    {
+      "id": "sk-structure",
+      "name": "论文结构识别",
+      "review": { "text": "重读《LoRa 农田监测》的研究背景与研究问题章节，练习用一句话概括每节在回答什么。", "paperId": "p1", "sectionId": "question" }
+    },
+    {
+      "id": "sk-method",
+      "name": "研究方法判断",
+      "review": { "text": "重读技术方法章节，列出「方案 → 解决了什么约束」的对应表，再回知识地图做节点小测验证。", "paperId": "p1", "sectionId": "method" }
+    },
+    {
+      "id": "sk-chart",
+      "name": "实验图表解读",
+      "review": { "text": "重读实验设计章节的对照表格，先找组间条件是否对齐、样本量与误差标注，再读数值差异。", "paperId": "p1", "sectionId": "experiment" }
+    },
+    {
+      "id": "sk-stat",
+      "name": "统计结果解读",
+      "review": { "text": "重读研究结论章节中显著性检验的表述，区分「统计显著」与「工程上差异大」两件事。", "paperId": "p1", "sectionId": "conclusion" }
+    }
+  ],
+  "questions": [
+    {
+      "id": "qz-01",
+      "type": "single",
+      "prompt": "初读一篇论文时，先读哪两部分最能快速判断「是否值得精读」？",
+      "options": ["摘要与结论", "参考文献列表", "致谢与作者介绍", "期刊投稿格式说明"],
+      "answer": 0,
+      "explain": "摘要给出问题—方法—结果的浓缩版，结论给出答案与局限；两者对照即可判断论文与你的需求是否匹配，再决定精读哪几节。",
+      "tags": ["sk-structure"],
+      "paper": { "paperId": "p1", "sectionId": "background" }
+    },
+    {
+      "id": "qz-02",
+      "type": "single",
+      "prompt": "在五段教学结构中，「用了什么技术、为什么选它」属于哪一节？",
+      "options": ["研究背景", "研究结论", "技术方法", "实验设计"],
+      "answer": 2,
+      "explain": "技术方法节回答「怎么做」：方案选型、原理与实现细节；背景回答「为什么做」，实验回答「怎么验证」，结论回答「做成了什么」。",
+      "tags": ["sk-structure"],
+      "paper": { "paperId": "p1", "sectionId": "method" }
+    },
+    {
+      "id": "qz-03",
+      "type": "single",
+      "prompt": "LoRa 适合农田监测的最主要原因是？",
+      "options": ["速率比 Wi-Fi 更高", "扩频调制带来远距离与低功耗的组合", "不需要任何网关", "发射功率不受法规限制"],
+      "answer": 1,
+      "explain": "LoRa 的扩频调制以速率换灵敏度与距离，配合休眠策略实现电池数年续航；它的速率远低于 Wi-Fi，且 LoRaWAN 需要网关汇聚。",
+      "tags": ["sk-method", "n-lora"],
+      "paper": { "paperId": "p1", "sectionId": "question" }
+    },
+    {
+      "id": "qz-04",
+      "type": "single",
+      "prompt": "监测节点采用休眠唤醒策略的主要目的是？",
+      "options": ["提高发射功率", "增加 ADC 位数", "降低平均功耗以延长电池寿命", "减少丢包率"],
+      "answer": 2,
+      "explain": "射频发送是耗电大头：绝大部分时间休眠、按周期唤醒上报，可把平均电流压到 µA–mA 级；它与丢包率、ADC 位数无直接关系。",
+      "tags": ["n-sleep"],
+      "paper": { "paperId": "p1", "sectionId": "background" }
+    },
+    {
+      "id": "qz-05",
+      "type": "single",
+      "prompt": "ADC 在监测节点中的作用是？",
+      "options": ["把传感器的模拟信号转换为数字量供 MCU 处理", "放大射频信号", "存储节点固件", "驱动显示屏刷新"],
+      "answer": 0,
+      "explain": "土壤湿度等传感器输出模拟电压/电流，MCU 只能处理数字量，ADC 完成这一转换；其位数与采样率决定测量分辨率。",
+      "tags": ["n-adc"],
+      "paper": { "paperId": "p1", "sectionId": "method" }
+    },
+    {
+      "id": "qz-06",
+      "type": "single",
+      "prompt": "对比实验中设置对照组的核心目的是？",
+      "options": ["增加论文篇幅", "隔离自变量的影响，提供比较基线", "让图表颜色更丰富", "减少所需样本量"],
+      "answer": 1,
+      "explain": "没有基线就无法归因：对照组保持除自变量外的条件一致，组间差异才能被解释为自变量的效果。",
+      "tags": ["sk-method", "n-ctrl-group"],
+      "paper": { "paperId": "p1", "sectionId": "experiment" }
+    },
+    {
+      "id": "qz-07",
+      "type": "single",
+      "prompt": "LoRa 农田对比实验中，下列哪项属于必须控制的混杂变量？",
+      "options": ["两组的通信方案", "两组的丢包率", "两组的部署深度与灌溉条件差异", "两组的平均电流"],
+      "answer": 2,
+      "explain": "通信方案是自变量、丢包率与平均电流是因变量；部署深度与灌溉条件若不一致会混入结果，必须保持一致。",
+      "tags": ["n-var-ctrl"],
+      "paper": { "paperId": "p1", "sectionId": "experiment" }
+    },
+    {
+      "id": "qz-08",
+      "type": "single",
+      "prompt": "MAE（平均绝对误差）越小说明什么？",
+      "options": ["测量或估计越接近真值", "节点功耗越大", "通信距离越远", "样本量越大"],
+      "answer": 0,
+      "explain": "MAE 是误差绝对值的平均：越小说明预测/测量整体偏离真值越少；它与功耗、距离、样本量没有定义上的关系。",
+      "tags": ["sk-chart", "n-mae"],
+      "paper": { "paperId": "p3", "sectionId": "experiment" }
+    },
+    {
+      "id": "qz-09",
+      "type": "single",
+      "prompt": "论文报告 p < 0.05 时，通常正确的解读是？",
+      "options": ["组间差异在工程上一定很大", "样本量一定超过 1000", "组间差异不太可能仅由随机误差造成", "实验一定可以被重复"],
+      "answer": 2,
+      "explain": "p 值回答「若两组其实无差异，观察到当前数据的概率有多小」；显著不等于差异大，也不保证可重复，需结合效应量与样本量一起读。",
+      "tags": ["sk-stat", "n-sig-test"],
+      "paper": { "paperId": "p1", "sectionId": "conclusion" }
+    },
+    {
+      "id": "qz-10",
+      "type": "single",
+      "prompt": "读丢包率对比柱状图时，最应该先检查什么？",
+      "options": ["柱子配色是否美观", "两组条件是否对齐、是否标注样本量与误差棒", "图表是否使用 3D 效果", "作者单位是否知名"],
+      "answer": 1,
+      "explain": "图表可信度先于数值：条件不对齐的对比无意义，缺少样本量与误差棒则无法判断差异是否稳定；美观与 3D 效果与证据强度无关。",
+      "tags": ["sk-chart"],
+      "paper": { "paperId": "p1", "sectionId": "experiment" }
+    },
+    {
+      "id": "qz-11",
+      "type": "single",
+      "prompt": "卡尔曼滤波在室内定位中解决的问题是？",
+      "options": ["提高 Wi-Fi 发射功率", "从带噪声的 RSSI 观测中递推估计最优位置", "对定位数据加密", "压缩地图图像"],
+      "answer": 1,
+      "explain": "RSSI 测距噪声大：卡尔曼滤波用「预测 + 观测更新」递推融合历史估计与当前观测，抑制抖动，得到更稳的位置估计。",
+      "tags": ["n-kf", "sk-method"],
+      "paper": { "paperId": "p3", "sectionId": "question" }
+    },
+    {
+      "id": "qz-12",
+      "type": "single",
+      "prompt": "磁场定向控制（FOC）在永磁同步电机中的作用是？",
+      "options": ["产生反电动势", "替代位置传感器", "把定子电流解耦为转矩与磁通分量分别控制", "把铜损降为零"],
+      "answer": 2,
+      "explain": "FOC 通过坐标变换把交流量变为直流量，转矩分量与磁通分量独立闭环，从而获得类似直流电机的控制品质；它不产生反电动势也不能消除铜损。",
+      "tags": ["n-foc"],
+      "paper": { "paperId": "p2", "sectionId": "method" }
+    },
+    {
+      "id": "qz-13",
+      "type": "judge",
+      "prompt": "论文摘要通常包含研究问题、方法与主要结果三要素。",
+      "answer": 0,
+      "explain": "正确。结构化摘要的惯例就是问题—方法—结果（有时加结论），据此可在 1 分钟内判断论文相关性。",
+      "tags": ["sk-structure"],
+      "paper": { "paperId": "p1", "sectionId": "background" }
+    },
+    {
+      "id": "qz-14",
+      "type": "judge",
+      "prompt": "对比实验中，对照组与实验组可以同时使用不同型号的传感器。",
+      "answer": 1,
+      "explain": "错误。传感器型号不同会引入系统误差差异，与自变量混杂，破坏归因；除自变量外其余条件应保持一致。",
+      "tags": ["n-ctrl-group", "n-var-ctrl"],
+      "paper": { "paperId": "p1", "sectionId": "experiment" }
+    },
+    {
+      "id": "qz-15",
+      "type": "judge",
+      "prompt": "p < 0.05 意味着两组差异在工程上一定非常大。",
+      "answer": 1,
+      "explain": "错误。大样本下微小差异也能显著；统计显著性与工程重要性是两回事，应同时报告效应量（如误差下降多少 mA / 多少个百分点）。",
+      "tags": ["sk-stat", "n-sig-test"],
+      "paper": { "paperId": "p1", "sectionId": "conclusion" }
+    },
+    {
+      "id": "qz-16",
+      "type": "judge",
+      "prompt": "LoRa 的速率高于 Wi-Fi，因此适合视频回传。",
+      "answer": 1,
+      "explain": "错误。LoRa 速率在 kbps 级，比 Wi-Fi 低约三个数量级；它用速率换距离与功耗，视频回传应选 Wi-Fi 等高吞吐技术。",
+      "tags": ["n-lora", "sk-method"],
+      "paper": { "paperId": "p1", "sectionId": "question" }
+    },
+    {
+      "id": "qz-17",
+      "type": "judge",
+      "prompt": "折线图中两组误差棒大量重叠时，应谨慎下「两组一定不同」的结论。",
+      "answer": 0,
+      "explain": "正确。误差棒重叠提示差异可能落在随机波动范围内，需要显著性检验或更大样本支持，不能只看均值高低。",
+      "tags": ["sk-chart", "n-sig-test"],
+      "paper": { "paperId": "p3", "sectionId": "experiment" }
+    },
+    {
+      "id": "qz-18",
+      "type": "judge",
+      "prompt": "传感器标定的目的是建立输出与真实物理量的对应关系，减小系统误差。",
+      "answer": 0,
+      "explain": "正确。标定用已知标准量拟合输出曲线，修正偏移与增益误差；未标定的传感器读数可能整体偏高或偏低。",
+      "tags": ["n-sensor-cal"],
+      "paper": { "paperId": "p1", "sectionId": "background" }
+    }
+  ]
+}

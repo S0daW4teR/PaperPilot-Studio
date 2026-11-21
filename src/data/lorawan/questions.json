@@ -1,0 +1,406 @@
+{
+  "paperId": "paper_lorawan_2023_8440",
+  "questions": [
+    {
+      "id": "q_single_01",
+      "type": "single_choice",
+      "question": "论文把 LoRaWAN 放在哪一类物联网通信技术中讨论？",
+      "options": [
+        {
+          "id": "q_single_01_A",
+          "text": "LPWAN"
+        },
+        {
+          "id": "q_single_01_B",
+          "text": "有线以太网"
+        },
+        {
+          "id": "q_single_01_C",
+          "text": "短距离音频通信"
+        },
+        {
+          "id": "q_single_01_D",
+          "text": "卫星电视广播"
+        }
+      ],
+      "answer": "A",
+      "explanation": "论文第 2 页明确将 LoRaWAN 描述为 LPWAN 网络技术。LPWAN 强调低功耗和较广覆盖，适合许多低速率物联网传感器任务。",
+      "relatedKnowledge": [
+        "kn_lpwan",
+        "kn_lorawan_role"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "q_single_02",
+      "type": "single_choice",
+      "question": "论文介绍的 LoRaWAN 三个主要组成部分是哪一组？",
+      "options": [
+        {
+          "id": "q_single_02_A",
+          "text": "传感器、显示器、打印机"
+        },
+        {
+          "id": "q_single_02_B",
+          "text": "端设备、网关、后端服务器"
+        },
+        {
+          "id": "q_single_02_C",
+          "text": "路由器、交换机、键盘"
+        },
+        {
+          "id": "q_single_02_D",
+          "text": "云盘、浏览器、手机屏幕"
+        }
+      ],
+      "answer": "B",
+      "explanation": "端设备产生数据，网关接收并转发无线消息，后端服务器承担网络和应用侧处理。理解这条链路有助于分析数据从哪里来、经过哪里、最终到哪里。",
+      "relatedKnowledge": [
+        "kn_architecture"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "q_single_03",
+      "type": "single_choice",
+      "question": "按照论文对终端类别的介绍，哪一类设备的接收窗口持续开放，能耗在三类中最高？",
+      "options": [
+        {
+          "id": "q_single_03_A",
+          "text": "Class A"
+        },
+        {
+          "id": "q_single_03_B",
+          "text": "Class B"
+        },
+        {
+          "id": "q_single_03_C",
+          "text": "Class C"
+        },
+        {
+          "id": "q_single_03_D",
+          "text": "三类完全相同"
+        }
+      ],
+      "answer": "C",
+      "explanation": "论文第 2 页指出 Class C 的接收窗口持续开放，因此三类中能耗最高。更及时地接收下行消息通常需要付出额外能耗。",
+      "relatedKnowledge": [
+        "kn_end_device_classes"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "q_single_04",
+      "type": "single_choice",
+      "question": "论文的系统性文献综述方法包含哪三个阶段？",
+      "options": [
+        {
+          "id": "q_single_04_A",
+          "text": "焊接、调试、量产"
+        },
+        {
+          "id": "q_single_04_B",
+          "text": "规划、自动检索结果、人工审查结果"
+        },
+        {
+          "id": "q_single_04_C",
+          "text": "采样、滤波、放大"
+        },
+        {
+          "id": "q_single_04_D",
+          "text": "建模、训练、部署"
+        }
+      ],
+      "answer": "B",
+      "explanation": "作者在第 3 页明确将流程分为 planning、automatic review of results 和 manual review of results。它们对应确定检索方案、执行数据库检索和人工筛选。",
+      "relatedKnowledge": [
+        "kn_review_method"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "q_single_05",
+      "type": "single_choice",
+      "question": "以下哪一项是论文检索使用的数据库之一？",
+      "options": [
+        {
+          "id": "q_single_05_A",
+          "text": "IEEE Xplore"
+        },
+        {
+          "id": "q_single_05_B",
+          "text": "短视频推荐页"
+        },
+        {
+          "id": "q_single_05_C",
+          "text": "在线购物订单库"
+        },
+        {
+          "id": "q_single_05_D",
+          "text": "手机通讯录"
+        }
+      ],
+      "answer": "A",
+      "explanation": "IEEE Xplore 是作者列出的四个主要科学数据库之一，另外还有 Springer Link、SCOPUS 和 ACM Digital Library。数据库选择会影响检索到的研究范围。",
+      "relatedKnowledge": [
+        "kn_review_method"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "q_single_06",
+      "type": "single_choice",
+      "question": "论文分析的 LoRaWAN 应用中，哪一类出现最频繁？",
+      "options": [
+        {
+          "id": "q_single_06_A",
+          "text": "环境监测"
+        },
+        {
+          "id": "q_single_06_B",
+          "text": "电子游戏直播"
+        },
+        {
+          "id": "q_single_06_C",
+          "text": "高清视频点播"
+        },
+        {
+          "id": "q_single_06_D",
+          "text": "桌面排版"
+        }
+      ],
+      "answer": "A",
+      "explanation": "论文第 6 页和第 14 页讨论指出，环境监测是分析文献中最常见的应用方向，例如温度、湿度、紫外线、空气和水质监测。",
+      "relatedKnowledge": [
+        "kn_applications"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "q_single_07",
+      "type": "single_choice",
+      "question": "以下哪一项最符合论文描述的 LoRaWAN 典型使用需求？",
+      "options": [
+        {
+          "id": "q_single_07_A",
+          "text": "持续传输未压缩 4K 视频"
+        },
+        {
+          "id": "q_single_07_B",
+          "text": "远处分布的传感器每隔一段时间发送少量测量数据"
+        },
+        {
+          "id": "q_single_07_C",
+          "text": "要求毫秒级响应的高频云游戏画面"
+        },
+        {
+          "id": "q_single_07_D",
+          "text": "替代所有有线网络"
+        }
+      ],
+      "answer": "B",
+      "explanation": "论文第 2 页指出，LoRaWAN 主要面向低传输速率、传输间隔较长的传感器。选择通信技术要结合数据量、时延、覆盖和功耗要求。",
+      "relatedKnowledge": [
+        "kn_lorawan_role",
+        "kn_lpwan"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "q_single_08",
+      "type": "single_choice",
+      "question": "论文用哪个指标表示成功交付的数据包相对于发送数据包的比例？",
+      "options": [
+        {
+          "id": "q_single_08_A",
+          "text": "RSSI"
+        },
+        {
+          "id": "q_single_08_B",
+          "text": "SNR"
+        },
+        {
+          "id": "q_single_08_C",
+          "text": "PDR"
+        },
+        {
+          "id": "q_single_08_D",
+          "text": "CPU"
+        }
+      ],
+      "answer": "C",
+      "explanation": "PDR 是 Packet Delivery Ratio，即数据包交付率。它关注消息有没有成功送达；RSSI 和 SNR 则描述信号强度或信号相对噪声的情况。",
+      "relatedKnowledge": [
+        "kn_performance_metrics"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "q_single_09",
+      "type": "single_choice",
+      "question": "根据论文的总结，研究人员对 LoRaWAN 的改进主要涉及哪些方面？",
+      "options": [
+        {
+          "id": "q_single_09_A",
+          "text": "安全、能耗表现和数据包交付"
+        },
+        {
+          "id": "q_single_09_B",
+          "text": "屏幕分辨率、键盘布局和打印速度"
+        },
+        {
+          "id": "q_single_09_C",
+          "text": "视频编码、图形渲染和游戏帧率"
+        },
+        {
+          "id": "q_single_09_D",
+          "text": "电池颜色、外壳形状和包装尺寸"
+        }
+      ],
+      "answer": "A",
+      "explanation": "论文第 17 页总结，已有改进工作涉及安全、能量性能和数据包交付，并指出研究呈现出关注能耗性能改进的趋势。",
+      "relatedKnowledge": [
+        "kn_lorawan_security",
+        "kn_performance_metrics"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "q_single_10",
+      "type": "single_choice",
+      "question": "论文结论中提到，在其分析的真实应用项目中，出现次数最多的开发板/模块品牌是哪一个？",
+      "options": [
+        {
+          "id": "q_single_10_A",
+          "text": "Semtech Corporation"
+        },
+        {
+          "id": "q_single_10_B",
+          "text": "任意手机品牌"
+        },
+        {
+          "id": "q_single_10_C",
+          "text": "未列出的游戏主机品牌"
+        },
+        {
+          "id": "q_single_10_D",
+          "text": "论文没有讨论硬件"
+        }
+      ],
+      "answer": "A",
+      "explanation": "论文第 17 页报告 Semtech Corporation 对应 15 个项目，Arduino 为 12 个，Raspberry Pi 为 11 个。这个统计仅针对本文分析的项目集合。",
+      "relatedKnowledge": [
+        "kn_sensors_hardware"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "q_true_01",
+      "type": "true_false",
+      "question": "论文指出，LoRaWAN 适合所有需要高速、大带宽数据传输的应用。",
+      "options": [
+        {
+          "id": "q_true_01_true",
+          "text": "正确"
+        },
+        {
+          "id": "q_true_01_false",
+          "text": "错误"
+        }
+      ],
+      "answer": "false",
+      "explanation": "论文强调 LoRaWAN 面向低数据速率、较长发送间隔的传感器任务。不能因为它覆盖较广，就推断它适合高清视频等大流量场景。",
+      "relatedKnowledge": [
+        "kn_lorawan_role",
+        "kn_lpwan"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "q_true_02",
+      "type": "true_false",
+      "question": "论文将环境监测列为其分析文献中最常见的 LoRaWAN 应用方向。",
+      "options": [
+        {
+          "id": "q_true_02_true",
+          "text": "正确"
+        },
+        {
+          "id": "q_true_02_false",
+          "text": "错误"
+        }
+      ],
+      "answer": "true",
+      "explanation": "论文第 6 页的应用分析和第 14 页讨论均指出环境监测最常见，包含温度、湿度、紫外线、空气和水质等测量任务。",
+      "relatedKnowledge": [
+        "kn_applications"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "q_true_03",
+      "type": "true_false",
+      "question": "Class C 终端持续开放接收窗口，因此三类终端中能耗最高。",
+      "options": [
+        {
+          "id": "q_true_03_true",
+          "text": "正确"
+        },
+        {
+          "id": "q_true_03_false",
+          "text": "错误"
+        }
+      ],
+      "answer": "true",
+      "explanation": "这是论文第 2 页对 Class C 的直接描述。接收机会更多、更及时，通常意味着无线接收部分需要更长时间保持工作。",
+      "relatedKnowledge": [
+        "kn_end_device_classes"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "q_true_04",
+      "type": "true_false",
+      "question": "本文作者亲自搭建了所有被引用论文中的 LoRaWAN 系统，并统一进行了现场实验。",
+      "options": [
+        {
+          "id": "q_true_04_true",
+          "text": "正确"
+        },
+        {
+          "id": "q_true_04_false",
+          "text": "错误"
+        }
+      ],
+      "answer": "false",
+      "explanation": "本文是系统性文献综述，作者检索和分析已有论文。文中出现的具体实验数据来自被综述的研究，不能当作本文作者统一实施的实验。",
+      "relatedKnowledge": [
+        "kn_review_method",
+        "kn_performance_metrics"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "q_true_05",
+      "type": "true_false",
+      "question": "论文明确承认，只有 48% 的被分析论文对应 LoRaWAN 应用，因此关于主要研究领域的问题未能完全回答。",
+      "options": [
+        {
+          "id": "q_true_05_true",
+          "text": "正确"
+        },
+        {
+          "id": "q_true_05_false",
+          "text": "错误"
+        }
+      ],
+      "answer": "true",
+      "explanation": "论文第 17 页在结论中明确说明这一点。它提醒读者：综述结论受纳入文献的类别和检索筛选范围影响。",
+      "relatedKnowledge": [
+        "kn_review_method",
+        "kn_applications"
+      ],
+      "difficulty": 3
+    }
+  ]
+}

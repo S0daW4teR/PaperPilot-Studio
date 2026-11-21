@@ -1,0 +1,283 @@
+{
+  "paperId": "paper_lorawan_2023_8440",
+  "knowledgePoints": [
+    {
+      "id": "kn_iot_basics",
+      "name": "物联网与传感器数据链",
+      "category": "基础概念",
+      "difficulty": 1,
+      "prerequisites": [],
+      "explanation": "物联网（IoT）把具有感知、计算或通信能力的设备连接起来，使设备能够采集数据并传送给网络中的服务。本文讨论的典型链路是传感器节点采集环境数据，再通过 LoRaWAN 网络传送到后端系统。此处对 IoT 的通俗概括属于教学解释；论文第 1 页给出了 IoT 的基本定义。",
+      "learningObjectives": [
+        "解释物联网设备如何采集和传输数据",
+        "区分传感器采集与无线通信的作用",
+        "描述一个简单的传感器到服务器的数据路径"
+      ],
+      "example": "农田中的温湿度传感器测量环境，通信模块把测量值发送到网关，平台再把数据显示给农场管理者。",
+      "source": {
+        "pages": [
+          1,
+          2
+        ],
+        "sections": [
+          "Abstract",
+          "1. Introduction"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    },
+    {
+      "id": "kn_lpwan",
+      "name": "低功耗广域网（LPWAN）",
+      "category": "通信网络",
+      "difficulty": 2,
+      "prerequisites": [
+        "kn_iot_basics"
+      ],
+      "explanation": "LPWAN 是面向低功耗、广覆盖物联网连接的一类网络技术。论文指出，选择 IoT 通信技术时要考虑覆盖范围、数据传输速率和功耗，并将 Sigfox、LoRaWAN、NB-IoT 列为常见 LPWAN 方案。LPWAN 并不意味着高速传输；它通常更适合少量、间歇性数据。",
+      "learningObjectives": [
+        "说出 LPWAN 的主要设计取向",
+        "列举选择 IoT 通信技术时的三个因素",
+        "理解覆盖、速率和功耗之间需要权衡"
+      ],
+      "example": "一组分散在农田里的传感器每天发送几次土壤湿度数据，通常比持续上传高清视频更符合 LPWAN 的使用方向。",
+      "source": {
+        "pages": [
+          1,
+          2
+        ],
+        "sections": [
+          "Abstract",
+          "1. Introduction"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    },
+    {
+      "id": "kn_lorawan_role",
+      "name": "LoRaWAN 的定位与适用场景",
+      "category": "通信网络",
+      "difficulty": 2,
+      "prerequisites": [
+        "kn_lpwan"
+      ],
+      "explanation": "LoRaWAN 是一种面向广域、低功耗物联网应用的网络技术。论文将其描述为使用扩频技术、支持远距离数据传输，并适合低传输速率且发送间隔较长的传感器。实际通信距离和可靠性会受环境、天线、网关部署和网络参数影响，不能把单个案例距离当成固定保证。",
+      "learningObjectives": [
+        "解释 LoRaWAN 在 LPWAN 中的位置",
+        "识别适合 LoRaWAN 的低速率监测任务",
+        "说明为什么不能只凭理论覆盖距离判断部署效果"
+      ],
+      "example": "建筑物内的木材湿度监测节点定期发送测量值，属于论文综述中提到的 LoRaWAN 应用类型。",
+      "source": {
+        "pages": [
+          2,
+          6,
+          7,
+          17
+        ],
+        "sections": [
+          "1. Introduction",
+          "3.1.2. Environmental Monitoring",
+          "5. Conclusions"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    },
+    {
+      "id": "kn_architecture",
+      "name": "LoRaWAN 网络基本架构",
+      "category": "系统架构",
+      "difficulty": 2,
+      "prerequisites": [
+        "kn_iot_basics",
+        "kn_lorawan_role"
+      ],
+      "explanation": "论文介绍了端设备、网关和后端服务器三个主要组成部分。后端服务器包括网络服务器（NS）、加入服务器（JS）和应用服务器（AS）。端设备产生数据，网关转发无线消息，后端组件负责网络管理、设备入网相关处理和应用数据服务。此处对各组件职责的简化描述用于入门理解，详细职责需以对应版本规范为准。",
+      "learningObjectives": [
+        "列出 LoRaWAN 的三个主要组成部分",
+        "识别端设备、网关和后端服务器在链路中的位置",
+        "画出从传感器节点到应用服务的数据路径"
+      ],
+      "example": "水质传感器节点把 pH 测量数据发给附近网关，网关将消息送往后端，再由应用服务供手机端查看。",
+      "source": {
+        "pages": [
+          2
+        ],
+        "sections": [
+          "1. Introduction"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    },
+    {
+      "id": "kn_end_device_classes",
+      "name": "LoRaWAN 终端设备 A/B/C 类",
+      "category": "终端机制",
+      "difficulty": 3,
+      "prerequisites": [
+        "kn_architecture"
+      ],
+      "explanation": "论文按下行接收窗口行为介绍三类终端：Class A 在上行发送后打开两个接收窗口，平时休眠，延迟可能较高；Class B 在默认窗口之外按计划增加接收窗口；Class C 接收窗口持续开放，能更及时接收下行消息，但三类中能耗最高。具体时序和实现细节需结合协议版本规范。",
+      "learningObjectives": [
+        "区分 A、B、C 类终端的接收窗口特点",
+        "解释接收及时性与能耗之间的关系",
+        "根据应用需求初步判断终端类别"
+      ],
+      "example": "若电池供电的土壤传感器只需偶尔上报，Class A 的低功耗特征可能更合适；若设备需要较频繁接收控制消息，则需评估其他类别的代价。",
+      "source": {
+        "pages": [
+          2
+        ],
+        "sections": [
+          "1. Introduction"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    },
+    {
+      "id": "kn_sensors_hardware",
+      "name": "传感器、开发板与通信模块",
+      "category": "硬件系统",
+      "difficulty": 2,
+      "prerequisites": [
+        "kn_iot_basics",
+        "kn_architecture"
+      ],
+      "explanation": "传感器负责测量物理或化学量，开发板/微控制器负责读取和处理数据，LoRa 射频模块或集成模块承担无线通信，网关负责接收节点消息。论文表 7、表 8 汇总了温湿度、气体、水质、GPS 等传感器以及 Arduino、Raspberry Pi、Semtech、STMicroelectronics 等器件。不同项目的具体器件组合并不相同。",
+      "learningObjectives": [
+        "区分传感器、开发板、无线模块和网关",
+        "从应用需求推导所需传感器类型",
+        "从论文表格中定位硬件选型证据"
+      ],
+      "example": "空气质量节点可由颗粒物/气体传感器、微控制器和 LoRa 通信模块组成；传感器测量空气指标，控制器读取数据并安排发送。",
+      "source": {
+        "pages": [
+          6,
+          8,
+          9,
+          10
+        ],
+        "sections": [
+          "3.1.2. Environmental Monitoring",
+          "3.2. Devices Used in LoRaWAN Applications",
+          "Tables 7—8"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    },
+    {
+      "id": "kn_lorawan_security",
+      "name": "LoRaWAN 安全与设备激活",
+      "category": "网络安全",
+      "difficulty": 4,
+      "prerequisites": [
+        "kn_architecture"
+      ],
+      "explanation": "论文介绍了 AES-128 加密和消息认证码（MAC）等安全机制，并比较 ABP 与 OTAA 激活方式。论文指出 ABP 预配置参数、会话密钥可能长期不变，存在安全风险；OTAA 通过加入流程生成动态会话密钥。本文只做概念性概述，密钥层级、算法模式和具体安全属性应按部署所用 LoRaWAN 版本及规范核实。",
+      "learningObjectives": [
+        "说明加密与完整性保护的区别",
+        "概括 ABP 和 OTAA 的基本差异",
+        "解释长期复用会话密钥为何值得关注"
+      ],
+      "example": "若设备每次加入网络都通过 OTAA 流程建立新的会话密钥，通常比长期复用固定会话密钥更有利于降低密钥长期暴露的风险。",
+      "source": {
+        "pages": [
+          2,
+          13
+        ],
+        "sections": [
+          "1. Introduction",
+          "3.3.2. Security"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    },
+    {
+      "id": "kn_applications",
+      "name": "LoRaWAN 典型应用领域",
+      "category": "应用场景",
+      "difficulty": 2,
+      "prerequisites": [
+        "kn_lorawan_role",
+        "kn_sensors_hardware"
+      ],
+      "explanation": "论文归纳了农业、环境监测、移动性、健康及其他应用。环境监测包括紫外线、空气质量、水质和建筑木材湿度等；农业涉及土壤、作物和畜牧监测；移动性涉及车辆跟踪、停车和道路状况；健康应用涉及工作环境或活动监测。论文统计中环境监测是最常见的应用类别。",
+      "learningObjectives": [
+        "列举至少四类 LoRaWAN 应用",
+        "将传感器测量对象与应用领域对应",
+        "理解应用需求决定传感器和网络部署方式"
+      ],
+      "example": "鱼塘水质监测节点采集 pH、温度、溶解氧等指标，并把数据传给平台以便发现异常。",
+      "source": {
+        "pages": [
+          6,
+          7,
+          8,
+          14,
+          15
+        ],
+        "sections": [
+          "3.1. Applications of LoRaWAN",
+          "3.1.1—3.1.4",
+          "4. Discussion",
+          "Figures 1 and 3"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    },
+    {
+      "id": "kn_performance_metrics",
+      "name": "LoRaWAN 性能指标与评估",
+      "category": "网络性能",
+      "difficulty": 3,
+      "prerequisites": [
+        "kn_lpwan",
+        "kn_architecture"
+      ],
+      "explanation": "论文讨论了 RSSI（接收信号强度指示）、SNR（信噪比）和 PDR（数据包交付率）等指标，用于描述无线链路信号状况和数据交付表现。论文转述的一项校园环境研究观察到 RSSI 随通信距离变化而下降、SNR 随距离相对稳定、PDR 有明显波动。该观察属于被引用研究，不是本文作者自行开展的实验。",
+      "learningObjectives": [
+        "说出 RSSI、SNR、PDR 的基本含义",
+        "理解单一信号指标不能完全代表通信可靠性",
+        "识别论文中转述的性能测试结果及其来源层级"
+      ],
+      "example": "部署网关后，可在不同位置记录 RSSI、SNR 和成功接收的数据包比例，综合判断覆盖和链路质量。",
+      "source": {
+        "pages": [
+          11,
+          12
+        ],
+        "sections": [
+          "3.3. Other Works Analyzing Different Aspects of LoRaWAN"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    },
+    {
+      "id": "kn_review_method",
+      "name": "系统性文献综述的检索与筛选",
+      "category": "科研方法",
+      "difficulty": 3,
+      "prerequisites": [],
+      "explanation": "系统性文献综述通过明确研究目标、数据库、关键词和筛选条件来收集并分析已有研究。本文分为规划、自动检索和人工审查三个阶段，逐步缩小检索范围，再由研究者阅读摘要并选择相关文献。筛选结果受数据库、年份、语言和检索式影响。",
+      "learningObjectives": [
+        "复述本文文献综述的三个阶段",
+        "解释关键词、数据库和纳入条件的作用",
+        "识别检索策略可能造成的覆盖偏差"
+      ],
+      "example": "研究校园 LoRaWAN 空气质量监测时，先定义问题，再检索 IEEE Xplore 等数据库，按年份和主题筛选，最后人工判断论文是否相关。",
+      "source": {
+        "pages": [
+          3,
+          4,
+          5
+        ],
+        "sections": [
+          "2. Materials and Methods",
+          "2.1—2.3",
+          "Table 5"
+        ],
+        "kind": "paper_fact_plus_teaching"
+      }
+    }
+  ]
+}

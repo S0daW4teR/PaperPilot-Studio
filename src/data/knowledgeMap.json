@@ -1,0 +1,92 @@
+{
+  "caseId": "lora-wsn",
+  "caseTitle": "LoRa 无线传感器网络",
+  "caseDesc": "以第一篇教学案例《基于 LoRa 的低功耗农田环境监测系统设计》为背景组织的知识依赖图。掌握度由「论文理解 70% + 小测验证 30%」规则计算，全部证据可追溯。",
+  "weights": { "reader": 0.7, "quiz": 0.3, "masteredThreshold": 80, "learningThreshold": 40 },
+  "nodes": [
+    {
+      "id": "sensor",
+      "name": "传感器基础",
+      "en": "Sensor Fundamentals",
+      "x": 40,
+      "y": 90,
+      "deps": [],
+      "linkedNodes": ["n-sensor-cal"],
+      "paper": { "paperId": "p1", "sectionId": "background" },
+      "desc": "理解被测量如何变成电信号：量程、分辨率、零点偏移与增益误差，以及为什么标定是精度链条的第一环。",
+      "keyPoints": ["量程与分辨率决定精度上限", "标定消除系统误差，滤波抑制随机噪声", "传感器选型要匹配场景的动态范围"]
+    },
+    {
+      "id": "wireless",
+      "name": "无线通信基础",
+      "en": "Wireless Basics",
+      "x": 40,
+      "y": 330,
+      "deps": [],
+      "linkedNodes": ["n-rssi"],
+      "paper": { "paperId": "p3", "sectionId": "background" },
+      "desc": "频段、带宽、灵敏度与路径损耗的基本关系；理解 RSSI 为什么能粗略测距、又为什么不可靠。",
+      "keyPoints": ["自由空间路径损耗随距离平方衰减", "灵敏度决定「能听见多弱的信号」", "多径与遮挡是室内误差的主因"]
+    },
+    {
+      "id": "dataacq",
+      "name": "数据采集",
+      "en": "Data Acquisition",
+      "x": 280,
+      "y": 90,
+      "deps": ["sensor"],
+      "linkedNodes": ["n-adc"],
+      "paper": { "paperId": "p1", "sectionId": "method" },
+      "desc": "采样率、ADC 位数与量化误差；采样定理告诉我们要用多快的速度采样才不丢失信号信息。",
+      "keyPoints": ["采样率 ≥ 2×信号最高频率（奈奎斯特）", "量化误差 = 量程 / 2^位数 的一半", "采样保持与抗混叠滤波的作用"]
+    },
+    {
+      "id": "lora",
+      "name": "LoRa 技术",
+      "en": "LoRa PHY & MAC",
+      "x": 280,
+      "y": 330,
+      "deps": ["wireless"],
+      "linkedNodes": ["n-lora", "n-lorawan"],
+      "paper": { "paperId": "p1", "sectionId": "question" },
+      "desc": "扩频调制如何用带宽换灵敏度；SF/带宽/编码率三个旋钮如何权衡距离、速率与功耗；LoRaWAN 的星型组网与 Class A 模式。",
+      "keyPoints": ["SF 每 +1，灵敏度约 +2.5 dB、速率减半", "LoRa 是物理层，LoRaWAN 是组网协议", "Class A 最省电：发送后才开接收窗"]
+    },
+    {
+      "id": "lowpower",
+      "name": "低功耗设计",
+      "en": "Low-Power Design",
+      "x": 520,
+      "y": 150,
+      "deps": ["dataacq", "lora"],
+      "linkedNodes": ["n-sleep"],
+      "paper": { "paperId": "p1", "sectionId": "method" },
+      "desc": "占空比设计：休眠/唤醒/发送各状态电流与时间占比决定平均电流；电池寿命换算及其温度前提。",
+      "keyPoints": ["平均电流 = Σ(状态电流 × 时间占比)", "休眠电流量级通常是 μA，发送是 mA", "唤醒周期是续航与实时性的权衡旋钮"]
+    },
+    {
+      "id": "topology",
+      "name": "网络拓扑",
+      "en": "Network Topology",
+      "x": 520,
+      "y": 390,
+      "deps": ["lora", "wireless"],
+      "linkedNodes": ["n-gateway", "n-lorawan"],
+      "paper": { "paperId": "p1", "sectionId": "method" },
+      "desc": "星型/树型/mesh 的取舍；网关容量、回传链路与单点故障；为什么农田场景选星型。",
+      "keyPoints": ["星型：终端简单、网关集中、易管理", "网关是容量与单点故障的瓶颈", "拓扑选择 = 复杂度放在哪一侧的决策"]
+    },
+    {
+      "id": "app",
+      "name": "无线传感器网络应用",
+      "en": "WSN Applications",
+      "x": 760,
+      "y": 240,
+      "deps": ["lowpower", "topology", "dataacq"],
+      "linkedNodes": ["n-sig-test", "n-mae"],
+      "paper": { "paperId": "p1", "sectionId": "experiment" },
+      "desc": "把前面所有知识组装成可部署系统：场景约束 → 指标 → 实验验证 → 结论边界。理解应用层论文如何闭环。",
+      "keyPoints": ["场景约束翻译为可验证指标", "对照实验分离改进贡献", "结论必须声明适用边界"]
+    }
+  ]
+}

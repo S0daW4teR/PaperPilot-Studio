@@ -1,0 +1,157 @@
+{
+  "paperId": "paper_lorawan_2023_8440",
+  "terms": [
+    {
+      "id": "gloss_iot",
+      "term": "物联网",
+      "abbreviation": "IoT",
+      "definition": "由具备感知、计算或通信能力的设备互联形成的系统。",
+      "simpleExplanation": "可以把它理解为让现实世界中的设备采集信息并通过网络交换数据。",
+      "relatedKnowledge": [
+        "kn_iot_basics"
+      ]
+    },
+    {
+      "id": "gloss_lpwan",
+      "term": "低功耗广域网",
+      "abbreviation": "LPWAN",
+      "definition": "面向低功耗、广覆盖物联网连接的一类无线网络技术。",
+      "simpleExplanation": "适合分散设备偶尔发送少量数据，而不是持续传输大流量内容。",
+      "relatedKnowledge": [
+        "kn_lpwan"
+      ]
+    },
+    {
+      "id": "gloss_lorawan",
+      "term": "远距离广域网",
+      "abbreviation": "LoRaWAN",
+      "definition": "论文讨论的 LPWAN 网络技术，用于低功耗广域物联网通信。",
+      "simpleExplanation": "它让远处的传感器节点能够把少量数据送入网络。",
+      "relatedKnowledge": [
+        "kn_lorawan_role",
+        "kn_architecture"
+      ]
+    },
+    {
+      "id": "gloss_gateway",
+      "term": "网关",
+      "abbreviation": "GW",
+      "definition": "接收端设备无线消息并将其转发到后端网络的设备。",
+      "simpleExplanation": "像数据接力站，把传感器发出的无线消息交给后端系统。",
+      "relatedKnowledge": [
+        "kn_architecture"
+      ]
+    },
+    {
+      "id": "gloss_ns",
+      "term": "网络服务器",
+      "abbreviation": "NS",
+      "definition": "LoRaWAN 后端组成部分之一，参与网络侧管理。",
+      "simpleExplanation": "可先把它理解为负责网络运行协调的后台角色；具体职责需查规范。",
+      "relatedKnowledge": [
+        "kn_architecture"
+      ]
+    },
+    {
+      "id": "gloss_js",
+      "term": "加入服务器",
+      "abbreviation": "JS",
+      "definition": "LoRaWAN 后端组成部分之一，与设备加入网络流程相关。",
+      "simpleExplanation": "可理解为参与设备入网认证和密钥流程的后台角色。",
+      "relatedKnowledge": [
+        "kn_architecture",
+        "kn_lorawan_security"
+      ]
+    },
+    {
+      "id": "gloss_as",
+      "term": "应用服务器",
+      "abbreviation": "AS",
+      "definition": "LoRaWAN 后端组成部分之一，面向应用数据处理。",
+      "simpleExplanation": "把网络收到的数据交给具体应用使用，例如显示水质数据。",
+      "relatedKnowledge": [
+        "kn_architecture"
+      ]
+    },
+    {
+      "id": "gloss_class_a",
+      "term": "A 类终端",
+      "abbreviation": "Class A",
+      "definition": "上行发送后打开两个接收窗口，其他时间可休眠的双向终端类别。",
+      "simpleExplanation": "设备先主动发消息，随后短暂打开接收机会，因而适合节能型周期上报。",
+      "relatedKnowledge": [
+        "kn_end_device_classes"
+      ]
+    },
+    {
+      "id": "gloss_class_b",
+      "term": "B 类终端",
+      "abbreviation": "Class B",
+      "definition": "除默认接收窗口外，还按计划打开额外接收窗口的双向终端类别。",
+      "simpleExplanation": "设备会按计划增加“听消息”的时间。",
+      "relatedKnowledge": [
+        "kn_end_device_classes"
+      ]
+    },
+    {
+      "id": "gloss_class_c",
+      "term": "C 类终端",
+      "abbreviation": "Class C",
+      "definition": "接收窗口持续开放、下行接收更及时但能耗较高的终端类别。",
+      "simpleExplanation": "它几乎一直在听，因此更耗电。",
+      "relatedKnowledge": [
+        "kn_end_device_classes"
+      ]
+    },
+    {
+      "id": "gloss_otaa",
+      "term": "空中激活",
+      "abbreviation": "OTAA",
+      "definition": "通过加入流程使终端加入网络并建立会话参数的激活方式。",
+      "simpleExplanation": "设备通过网络加入过程取得会话所需参数，而不是只依赖预先固定配置。",
+      "relatedKnowledge": [
+        "kn_lorawan_security"
+      ]
+    },
+    {
+      "id": "gloss_abp",
+      "term": "个性化激活",
+      "abbreviation": "ABP",
+      "definition": "将设备参数预先配置到相关设备或服务器的激活方式。",
+      "simpleExplanation": "像提前把入网资料写好；配置简单，但密钥管理需要谨慎。",
+      "relatedKnowledge": [
+        "kn_lorawan_security"
+      ]
+    },
+    {
+      "id": "gloss_rssi",
+      "term": "接收信号强度指示",
+      "abbreviation": "RSSI",
+      "definition": "用于表示接收端测得的无线信号强度的指标。",
+      "simpleExplanation": "可以粗略理解为接收端听到信号有多强，但它不能单独说明数据一定能正确到达。",
+      "relatedKnowledge": [
+        "kn_performance_metrics"
+      ]
+    },
+    {
+      "id": "gloss_snr",
+      "term": "信噪比",
+      "abbreviation": "SNR",
+      "definition": "有用信号与噪声之间的比值，用于描述信号相对噪声的情况。",
+      "simpleExplanation": "信号相对于背景噪声越明显，通常越容易被正确识别。",
+      "relatedKnowledge": [
+        "kn_performance_metrics"
+      ]
+    },
+    {
+      "id": "gloss_pdr",
+      "term": "数据包交付率",
+      "abbreviation": "PDR",
+      "definition": "成功交付的数据包数量相对于发送数据包数量的比例。",
+      "simpleExplanation": "如果发出 100 个包、成功收到 90 个，简单计算的 PDR 就是 90%。",
+      "relatedKnowledge": [
+        "kn_performance_metrics"
+      ]
+    }
+  ]
+}
